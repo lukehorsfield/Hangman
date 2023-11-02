@@ -20,7 +20,11 @@ def hangman():
         print(' ')
 
         if guess in guessed_letters:
-            print('You already guessed this letter, try again')
+            print("You've already guessed this letter, try again.")
+            continue
+
+        elif len(guess) > 1:
+            print("Sorry, you can only guess one letter at a time, try again.")
             continue
 
         else:
@@ -28,10 +32,9 @@ def hangman():
 
         if guess in answer:
             print('Correct guess!')
-                # Update answer_statement with the correctly guessed letter
             for i in range(len(answer)):
-                    if answer[i] == guess:
-                        answer_statement = answer_statement[:i] + guess + answer_statement[i + 1:]
+                if answer[i] == guess:
+                    answer_statement = answer_statement[:i] + guess + answer_statement[i + 1:]
 
         else:
             guesses -= 1
